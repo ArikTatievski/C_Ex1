@@ -7,36 +7,21 @@ int fooA(int mat[10][10]){
         for(j=0;j<10;j++){
             scanf(" %d", &mat[i][j]);
             if (mat[i][j]==0 && i!=j){
-                mat[i][j]=INFINITY;
+                mat[i][j]=20000;
             }
         }
     }
     return 1;
 }
 
-int fooB(int mat[10][10],int helpingMat[10],int i, int j){
-    helpingMat[i] = 1;
-    helpingMat[j] = 1;
-    if(mat[i][j] > 0){
-        return 1;
+int fooB(int mat[10][10],int i, int j){
+    int checker = fooC(mat,i,j);
+    if(checker == -1){
+        return 0;
     }
     else{
-        int k;
-        for(k=0;k<10;k++){
-            if(mat[i][k]==0){
-                continue;
-            }
-            else{
-                if(helpingMat[k] == 1){
-                    continue;
-                }
-                if(fooB(mat,helpingMat,k,j) != 0){
-                    return 1;
-                }
-            }
-        }
+        return 1;
     }
-    return 0;
 }
 
 int mat_builder (int mat0[10][10],int mat1[10][10],int k ){
@@ -109,7 +94,7 @@ int fooC(int mat[10][10],int i,int j){
             checker=*checker2;
         }
     }
-    if (checker!=0 && checker!=INFINITY){
+    if (checker!=0 && checker!=INFINITY && checker<20000){
         return checker;
     }
     else{
