@@ -7,7 +7,7 @@ int fooA(int mat[10][10]){
         for(j=0;j<10;j++){
             scanf(" %d", &mat[i][j]);
             if (mat[i][j]==0 && i!=j){
-                mat[i][j]=20000;
+                mat[i][j]=1000000;
             }
         }
     }
@@ -94,7 +94,7 @@ int fooC(int mat[10][10],int i,int j){
             checker=*checker2;
         }
     }
-    if (checker!=0 && checker!=INFINITY && checker<20000){
+    if (checker!=0 && checker!=INFINITY && checker<1000000){
         return checker;
     }
     else{
