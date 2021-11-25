@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#define MATSIZE 10
+#define MATSIZE 100
 
 int fooA(int mat[MATSIZE][MATSIZE]){
     int i,j;
