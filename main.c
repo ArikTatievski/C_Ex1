@@ -1,9 +1,10 @@
 #include <stdio.h>
+#define MATSIZE 10
 
 int main() {
     int checker;
     int i,j,k,m;
-    int mat[10][10];
+    int mat[MATSIZE][MATSIZE];
     while(1){
         char ch;
         scanf("%c",&ch);

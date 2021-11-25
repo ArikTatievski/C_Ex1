@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <math.h>
+#define MATSIZE 10
 
-int fooA(int mat[10][10]){
+int fooA(int mat[MATSIZE][MATSIZE]){
     int i,j;
-    for(i=0; i<10;i++){
-        for(j=0;j<10;j++){
+    for(i=0; i<MATSIZE;i++){
+        for(j=0;j<MATSIZE;j++){
             scanf(" %d", &mat[i][j]);
             if (mat[i][j]==0 && i!=j){
                 mat[i][j]=1000000;
@@ -14,7 +15,7 @@ int fooA(int mat[10][10]){
     return 1;
 }
 
-int fooB(int mat[10][10],int i, int j){
+int fooB(int mat[MATSIZE][MATSIZE],int i, int j){
     int checker = fooC(mat,i,j);
     if(checker == -1){
         return 0;
@@ -24,10 +25,10 @@ int fooB(int mat[10][10],int i, int j){
     }
 }
 
-int mat_builder (int mat0[10][10],int mat1[10][10],int k ){
+int mat_builder (int mat0[MATSIZE][MATSIZE],int mat1[MATSIZE][MATSIZE],int k ){
     int checker1,checker2,x,y;
-    for (int i = 0; i <10 ; i++) {
-        for (int j = 0; j <10 ; j++) {
+    for (int i = 0; i <MATSIZE ; i++) {
+        for (int j = 0; j <MATSIZE ; j++) {
             if (i==j){
                 mat1[i][j]=0;
             }
@@ -72,11 +73,11 @@ int mat_builder (int mat0[10][10],int mat1[10][10],int k ){
     return 1;
 }
 
-int fooC(int mat[10][10],int i,int j){
+int fooC(int mat[MATSIZE][MATSIZE],int i,int j){
     int* checker2;
     int k;
     int checker= mat[i][j];
-    int mat1[10][10],mat2[10][10],mat3[10][10],mat4[10][10],mat5[10][10],mat6[10][10],mat7[10][10],mat8[10][10],mat9[10][10],mat10[10][10];
+    int mat1[MATSIZE][MATSIZE],mat2[MATSIZE][MATSIZE],mat3[MATSIZE][MATSIZE],mat4[MATSIZE][MATSIZE],mat5[MATSIZE][MATSIZE],mat6[MATSIZE][MATSIZE],mat7[MATSIZE][MATSIZE],mat8[MATSIZE][MATSIZE],mat9[MATSIZE][MATSIZE],mat10[MATSIZE][MATSIZE];
     mat_builder(mat,mat1,0);
     mat_builder(mat1,mat2,1);
     mat_builder(mat2,mat3,2);
@@ -88,8 +89,8 @@ int fooC(int mat[10][10],int i,int j){
     mat_builder(mat8,mat9,8);
     mat_builder(mat9,mat10,9);
     int* pointers[]={mat1,mat2,mat3,mat4,mat5,mat6,mat7,mat8,mat9,mat10};
-    for (k=0;k<10;k++){
-        checker2= pointers[k]+(10*i)+ j;
+    for (k=0;k<MATSIZE;k++){
+        checker2= pointers[k]+(MATSIZE*i)+ j;
         if (*checker2<checker){
             checker=*checker2;
         }
