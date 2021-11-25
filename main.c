@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MATSIZE 100
+#define MATSIZE 10
 
 int main() {
     int checker;
